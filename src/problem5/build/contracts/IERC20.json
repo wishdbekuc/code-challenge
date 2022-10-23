@@ -1,0 +1,914 @@
+{
+  "contractName": "IERC20",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Problem5.sol\":\"IERC20\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Problem5.sol\":{\"keccak256\":\"0x3e85006d5003e2885870a00c851d9e08f12aff75efbb2f72debde35a7cc489b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://344500cecfce5760db4bcaeb427094973d50dc28670a65d737279541c4f2a25e\",\"dweb:/ipfs/QmTdHhAKY7meFsTgeTH3wdMvxkGs5E9YNGJQ8sh6hbvUFd\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\n\ninterface IERC20 {\n    function balanceOf(address account) external view returns (uint256);\n}\n\n\ncontract Problem5 {\n\n    constructor() {\n    }\n\n    struct returnObject {\n        address TokenAddr;\n        uint256 amount;\n    }\n\n    function getBalances(address add, address[] memory tokens) public view returns (returnObject[] memory) {\n        returnObject[] memory ans;\n        for (uint i; i < tokens.length; i++) {\n            ans[i] = returnObject(tokens[i], IERC20(tokens[i]).balanceOf(add));\n        }\n        return ans;\n    }\n\n}\n\n\n\n//issue with deploying it to local network. the contract can get compiled successfully and the artifacts are written to build/contracts\n//but somehow truffle migrate does not deploy the contracts to the local network. have tried with multiple test networks to no avail\n//\n\n",
+  "sourcePath": "/Users/emanuel/Downloads/switcheo/code-challenge/src/problem5/contracts/Problem5.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Problem5.sol",
+    "exportedSymbols": {
+      "IERC20": [
+        42
+      ],
+      "Problem5": [
+        103
+      ]
+    },
+    "id": 104,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC20",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 42,
+        "linearizedBaseContracts": [
+          42
+        ],
+        "name": "IERC20",
+        "nameLocation": "77:6:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "70a08231",
+            "id": 41,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "balanceOf",
+            "nameLocation": "99:9:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 37,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 36,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "117:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41,
+                  "src": "109:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 35,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "109:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "108:17:1"
+            },
+            "returnParameters": {
+              "id": 40,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 39,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41,
+                  "src": "149:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "149:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "148:9:1"
+            },
+            "scope": 42,
+            "src": "90:68:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 104,
+        "src": "67:93:1",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Problem5",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 103,
+        "linearizedBaseContracts": [
+          103
+        ],
+        "name": "Problem5",
+        "nameLocation": "172:8:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 45,
+              "nodeType": "Block",
+              "src": "202:7:1",
+              "statements": []
+            },
+            "id": 46,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 43,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "199:2:1"
+            },
+            "returnParameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "202:0:1"
+            },
+            "scope": 103,
+            "src": "188:21:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Problem5.returnObject",
+            "id": 51,
+            "members": [
+              {
+                "constant": false,
+                "id": 48,
+                "mutability": "mutable",
+                "name": "TokenAddr",
+                "nameLocation": "253:9:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "245:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 47,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "245:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 50,
+                "mutability": "mutable",
+                "name": "amount",
+                "nameLocation": "280:6:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 51,
+                "src": "272:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 49,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "272:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "returnObject",
+            "nameLocation": "222:12:1",
+            "nodeType": "StructDefinition",
+            "scope": 103,
+            "src": "215:78:1",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 101,
+              "nodeType": "Block",
+              "src": "402:199:1",
+              "statements": [
+                {
+                  "assignments": [
+                    67
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 67,
+                      "mutability": "mutable",
+                      "name": "ans",
+                      "nameLocation": "434:3:1",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 101,
+                      "src": "412:25:1",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_returnObject_$51_memory_ptr_$dyn_memory_ptr",
+                        "typeString": "struct Problem5.returnObject[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 65,
+                          "nodeType": "UserDefinedTypeName",
+                          "pathNode": {
+                            "id": 64,
+                            "name": "returnObject",
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 51,
+                            "src": "412:12:1"
+                          },
+                          "referencedDeclaration": 51,
+                          "src": "412:12:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_returnObject_$51_storage_ptr",
+                            "typeString": "struct Problem5.returnObject"
+                          }
+                        },
+                        "id": 66,
+                        "nodeType": "ArrayTypeName",
+                        "src": "412:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_returnObject_$51_storage_$dyn_storage_ptr",
+                          "typeString": "struct Problem5.returnObject[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 68,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "412:25:1"
+                },
+                {
+                  "body": {
+                    "id": 97,
+                    "nodeType": "Block",
+                    "src": "484:91:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 95,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "baseExpression": {
+                              "id": 79,
+                              "name": "ans",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 67,
+                              "src": "498:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_returnObject_$51_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct Problem5.returnObject memory[] memory"
+                              }
+                            },
+                            "id": 81,
+                            "indexExpression": {
+                              "id": 80,
+                              "name": "i",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 70,
+                              "src": "502:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "nodeType": "IndexAccess",
+                            "src": "498:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_returnObject_$51_memory_ptr",
+                              "typeString": "struct Problem5.returnObject memory"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "arguments": [
+                              {
+                                "baseExpression": {
+                                  "id": 83,
+                                  "name": "tokens",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 56,
+                                  "src": "520:6:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                                    "typeString": "address[] memory"
+                                  }
+                                },
+                                "id": 85,
+                                "indexExpression": {
+                                  "id": 84,
+                                  "name": "i",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 70,
+                                  "src": "527:1:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "520:9:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              {
+                                "arguments": [
+                                  {
+                                    "id": 92,
+                                    "name": "add",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 53,
+                                    "src": "559:3:1",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "expression": {
+                                    "arguments": [
+                                      {
+                                        "baseExpression": {
+                                          "id": 87,
+                                          "name": "tokens",
+                                          "nodeType": "Identifier",
+                                          "overloadedDeclarations": [],
+                                          "referencedDeclaration": 56,
+                                          "src": "538:6:1",
+                                          "typeDescriptions": {
+                                            "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                                            "typeString": "address[] memory"
+                                          }
+                                        },
+                                        "id": 89,
+                                        "indexExpression": {
+                                          "id": 88,
+                                          "name": "i",
+                                          "nodeType": "Identifier",
+                                          "overloadedDeclarations": [],
+                                          "referencedDeclaration": 70,
+                                          "src": "545:1:1",
+                                          "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                          }
+                                        },
+                                        "isConstant": false,
+                                        "isLValue": true,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "nodeType": "IndexAccess",
+                                        "src": "538:9:1",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      }
+                                    ],
+                                    "expression": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      ],
+                                      "id": 86,
+                                      "name": "IERC20",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 42,
+                                      "src": "531:6:1",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_type$_t_contract$_IERC20_$42_$",
+                                        "typeString": "type(contract IERC20)"
+                                      }
+                                    },
+                                    "id": 90,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": false,
+                                    "kind": "typeConversion",
+                                    "lValueRequested": false,
+                                    "names": [],
+                                    "nodeType": "FunctionCall",
+                                    "src": "531:17:1",
+                                    "tryCall": false,
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_contract$_IERC20_$42",
+                                      "typeString": "contract IERC20"
+                                    }
+                                  },
+                                  "id": 91,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "balanceOf",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 41,
+                                  "src": "531:27:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                                    "typeString": "function (address) view external returns (uint256)"
+                                  }
+                                },
+                                "id": 93,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "functionCall",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "531:32:1",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "id": 82,
+                              "name": "returnObject",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 51,
+                              "src": "507:12:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_returnObject_$51_storage_ptr_$",
+                                "typeString": "type(struct Problem5.returnObject storage pointer)"
+                              }
+                            },
+                            "id": 94,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "structConstructorCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "507:57:1",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_returnObject_$51_memory_ptr",
+                              "typeString": "struct Problem5.returnObject memory"
+                            }
+                          },
+                          "src": "498:66:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_returnObject_$51_memory_ptr",
+                            "typeString": "struct Problem5.returnObject memory"
+                          }
+                        },
+                        "id": 96,
+                        "nodeType": "ExpressionStatement",
+                        "src": "498:66:1"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 75,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 72,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 70,
+                      "src": "460:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "expression": {
+                        "id": 73,
+                        "name": "tokens",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 56,
+                        "src": "464:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                          "typeString": "address[] memory"
+                        }
+                      },
+                      "id": 74,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "464:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "460:17:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 98,
+                  "initializationExpression": {
+                    "assignments": [
+                      70
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 70,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "457:1:1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 98,
+                        "src": "452:6:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 69,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "452:4:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 71,
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "452:6:1"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 77,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "479:3:1",
+                      "subExpression": {
+                        "id": 76,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "479:1:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 78,
+                    "nodeType": "ExpressionStatement",
+                    "src": "479:3:1"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "447:128:1"
+                },
+                {
+                  "expression": {
+                    "id": 99,
+                    "name": "ans",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 67,
+                    "src": "591:3:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_returnObject_$51_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct Problem5.returnObject memory[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 62,
+                  "id": 100,
+                  "nodeType": "Return",
+                  "src": "584:10:1"
+                }
+              ]
+            },
+            "functionSelector": "6a385ae9",
+            "id": 102,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getBalances",
+            "nameLocation": "308:11:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 57,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 53,
+                  "mutability": "mutable",
+                  "name": "add",
+                  "nameLocation": "328:3:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 102,
+                  "src": "320:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 52,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "320:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 56,
+                  "mutability": "mutable",
+                  "name": "tokens",
+                  "nameLocation": "350:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 102,
+                  "src": "333:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 54,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "333:7:1",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 55,
+                    "nodeType": "ArrayTypeName",
+                    "src": "333:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:38:1"
+            },
+            "returnParameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 61,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 102,
+                  "src": "379:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_returnObject_$51_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct Problem5.returnObject[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 59,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 58,
+                        "name": "returnObject",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 51,
+                        "src": "379:12:1"
+                      },
+                      "referencedDeclaration": 51,
+                      "src": "379:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_returnObject_$51_storage_ptr",
+                        "typeString": "struct Problem5.returnObject"
+                      }
+                    },
+                    "id": 60,
+                    "nodeType": "ArrayTypeName",
+                    "src": "379:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_returnObject_$51_storage_$dyn_storage_ptr",
+                      "typeString": "struct Problem5.returnObject[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "378:23:1"
+            },
+            "scope": 103,
+            "src": "299:302:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 104,
+        "src": "163:441:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:849:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-10-22T03:43:58.062Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
